@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Types Table</title>
+    <link rel="stylesheet" href="./th.css">
+</head>
+
+<!-- diffrence bw inline and inline-block -->
+<!-- 
+📌 1️⃣ Inline Elements
+✅ Stays in the same line as other elements.
+✅ Does NOT accept width or height (it only takes as much space as its content).
+✅ Only respects horizontal padding & margin (vertical padding/margin is ignored or behaves inconsistently).
+✅ Used for styling specific words, links, or small elements inside text.
+
+ span {
+            background-color: lightblue;
+            width: 200px; /* ❌ This won't work */
+            height: 50px; /* ❌ This won't work */
+            padding: 10px; /* ✅ Horizontal works, but vertical may be ignored */
+            margin: 10px; /* ❌ Vertical margin is ignored */
+        }
+
+
+📌 2️⃣ Inline-Block Elements
+✅ Stays inline like inline elements, but
+✅ Accepts width & height (unlike inline elements).
+✅ Respects all padding & margin values (both horizontal & vertical).
+✅ Useful for buttons, images, form inputs, and other elements that need spacing but should stay in line.
+
+.inline-block-box {
+            display: inline-block;
+            background-color: lightgreen;
+            width: 200px; /* ✅ Works! */
+            height: 50px; /* ✅ Works! */
+            padding: 10px; /* ✅ Works properly */
+            margin: 10px; /* ✅ Works properly */
+            text-align: center;
+        }
+-->
+
+
+
+<body>
+
+    <h1>📌 Understanding the Different Display Types</h1>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Display Type</th>
+                <th>Example Elements</th>
+                <th>Characteristics</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Block</td>
+                <td>&lt;div&gt;, &lt;p&gt;, &lt;form&gt;, &lt;h1&gt;</td>
+                <td>
+                    <ul>
+                        <li>Starts on a new line.</li>
+                        <li>Takes full available width.</li>
+                        <li>Can have width, height, margin, and padding.</li>
+                        <li>Commonly used for structural elements.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Inline</td>
+                <td>&lt;span&gt;, &lt;a&gt;, &lt;strong&gt;</td>
+                <td>
+                    <ul>
+                        <li>Stays in the same line with adjacent elements.</li>
+                        <li>Width and height are ignored; size depends on content.</li>
+                        <li>Only padding and margin (left/right) are respected.</li>
+                        <li>Used for styling specific words or phrases.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Inline-Block</td>
+                <td>&lt;button&gt;, &lt;input&gt;, &lt;img&gt;</td>
+                <td>
+                    <ul>
+                        <li>Behaves like inline (stays in the same line).</li>
+                        <li>Respects width and height properties.</li>
+                        <li>Allows for inline elements with box-like behavior.</li>
+                        <li>Useful for buttons, form elements, and images.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Flexbox</td>
+                <td>&lt;div class="flex-container"&gt;</td>
+                <td>
+                    <ul>
+                        <li>One-dimensional layout system (row or column).</li>
+                        <li>Provides flexible alignment and spacing.</li>
+                        <li>Uses properties like <code>justify-content</code> and <code>align-items</code>.</li>
+                        <li>Best for creating responsive UI elements.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Grid</td>
+                <td>&lt;div class="grid-container"&gt;</td>
+                <td>
+                    <ul>
+                        <li>Two-dimensional layout system.</li>
+                        <li>Allows rows and columns with precise control.</li>
+                        <li>Uses <code>grid-template-rows</code> and <code>grid-template-columns</code>.</li>
+                        <li>Best for creating complex layouts with precise alignment.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Table</td>
+                <td>&lt;table&gt;</td>
+                <td>
+                    <ul>
+                        <li>Designed for tabular data representation.</li>
+                        <li>Organizes content into rows and columns.</li>
+                        <li>Consists of elements like <code>thead</code>, <code>tbody</code>, <code>tr</code>,
+                            <code>th</code>, and <code>td</code>.</li>
+                        <li>Not recommended for layout design.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+
+</html>

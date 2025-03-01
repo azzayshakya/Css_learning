@@ -1,0 +1,86 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px;
+}
+
+section {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+/* Block-Level Elements */
+.block {
+    background: lightblue;
+    padding: 10px;
+    margin: 10px auto;
+    width: 50%;
+    border: 2px solid blue;
+}
+
+/* Inline Elements */
+.inline {
+    background: lightcoral;
+    padding: 5px;
+    border: 1px solid red;
+    display: inline;
+    margin: 5px; /* Doesn't affect inline elements */
+}
+
+/* Inline-Block Elements */
+.inline-block {
+    background: lightgreen;
+    padding: 10px;
+    border: 2px solid green;
+    display: inline-block;
+    margin: 5px;
+}
+
+/* Flexbox */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background: lightgray;
+    padding: 10px;
+}
+.flex-item {
+    background: orange;
+    padding: 20px;
+    border: 2px solid brown;
+}
+
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: lightgray;
+    padding: 10px;
+}
+.grid-item {
+    background: purple;
+    color: white;
+    padding: 20px;
+    border: 2px solid darkviolet;
+}
+
+/* Table */
+.table {
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+}
+.table th, .table td {
+    border: 2px solid black;
+    padding: 10px;
+}

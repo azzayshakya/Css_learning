@@ -1,0 +1,64 @@
+/* General Styles */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Common Box Styling */
+.box {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid blue;
+}
+
+/* General container to visualize cases */
+.container {
+    background-color: lightgray;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+/* Case 1: Works - Block-level element with a defined width */
+.case1 {
+    width: 300px; /* Must define width */
+    margin: auto; /* Centers horizontally */
+}
+
+/* Case 2: Doesn't Work - Block-level element without a width */
+.case2 {
+    /* No width, so margin auto won't work */
+    margin: auto;
+}
+
+/* Case 3: Doesn't Work - Inline Elements */
+.case3 {
+    display: inline;
+    margin: auto; /* Won't work on inline elements */
+}
+
+/* Case 4: Works - Flexbox (Both Horizontally & Vertically) */
+.flexbox {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 200px;
+}
+.case4 {
+    width: 200px;
+    margin: auto; 
+    /* Works inside flexbox */
+}
+
+/* Case 5: Works - Grid Layout (Both Horizontally & Vertically) */
+.grid {
+    display: grid;
+    place-items: center; /* Centers both ways */
+    height: 200px;
+}
+.case5 {
+    width: 200px;
+    margin: auto; /* Works inside grid */
+}

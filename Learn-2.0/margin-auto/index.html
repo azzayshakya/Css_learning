@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Margin Auto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Mastering margin: auto;</h1>
+
+    <!-- Case 1: Works - Block-level element with defined width -->
+    <div class="container">
+        <div class="box case1">Block with width (Centered ✅)</div>
+    </div>
+
+    <!-- Case 2: Doesn't Work - Block element but no width -->
+    <div class="container">
+        <div class="box case2">Block without width (Not Centered ❌)</div>
+    </div>
+
+    <!-- Case 3: Doesn't Work - Inline elements (span) -->
+    <div class="container">
+        <span class="case3">Inline element (Not Centered ❌)</span>
+    </div>
+
+    <!-- Case 4: Works - Flexbox (Both Horizontally & Vertically) -->
+    <div class="container flexbox">
+        <div class="box case4">Flexbox Centering ✅</div>
+    </div>
+
+    <!-- Case 5: Works - Grid Layout (Both Horizontally & Vertically) -->
+    <div class="container grid">
+        <div class="box case5">Grid Centering ✅</div>
+    </div>
+
+</body>
+</html>
