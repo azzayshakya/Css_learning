@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: skyblue;
+    
+    height: 100vh;
+}
+
+
+.all-side-eual{
+    
+    width: 50%;
+    height: 200px;
+    background-color: blue;
+    margin: 10px;
+
+
+}
+.all-side-eual-box{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    /* means you use  margin to implement same margin fromeach side */
+    margin: 10px;
+}
+
+/*  */
+.dif-margin{
+    background-color: grey;
+    width: 50%;
+    height: 200px;
+    margin: 10px;
+
+}
+.dif-margin-box{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+   margin-top: 1px;
+   margin-left: 20px;
+
+}
+
+/*  */
+
+.auto-margin{
+    background-color: yellow;
+    width: 50%;
+    height: 200px;
+    margin: 10px;
+
+}
+.auto-margin-box{
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  
+
+}
+
+/*  */
+
+.negative-margin{
+    background-color: lightgrey;
+    width: 50%;
+    /* height: 200px; */
+    margin: 10px;
+}
+.negative-margin-box-1{
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    /* margin: auto; */
+}
+.negative-margin-box-2{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    margin-top: -30px;
+    
+    /* margin: auto; */
+}
+.negative-margin-box-3{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    /* margin: auto; */
+    margin: 10px;
+}
