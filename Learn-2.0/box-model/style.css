@@ -1,22 +1,71 @@
-body{
-    background-color: lightgreen;
-   
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa;
 }
 
-*{
-    padding: 0;
-    margin: 0;
+h1 {
+    text-align: center;
+    color: #333;
 }
-.box-model{
-    background-color: aqua;
-    margin: 5rem;
-    width: 100%;
-    height: 70vh;
 
-
+.section {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-.box-model h1{
-    margin: auto;
-    width: auto;
-    height: auto;
+
+/* Box Model Example */
+.box {
+    width: 200px;   /* Content width */
+    height: 100px;  /* Content height */
+    
+    padding: 20px;  /* Space inside the box */
+    border: 5px solid blue;  /* Border thickness and color */
+    margin: 30px;   /* Space outside the box */
+
+    background-color: lightgray;
+    text-align: center;
+    line-height: 100px;
+}
+
+/* Box Sizing Example */
+.box-sizing-example {
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid green;
+    background-color: lightyellow;
+    text-align: center;
+}
+
+/* Centering an Element */
+.centered-box {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid red;
+    background-color: lightpink;
+    text-align: center;
+    margin: 20px auto;  /* Centering horizontally */
+}
+
+/* Responsive Box */
+.responsive-box {
+    width: 50%;
+    max-width: 300px;
+    padding: 20px;
+    border: 3px dashed orange;
+    background-color: lightblue;
+    text-align: center;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+    .responsive-box {
+        width: 90%;
+    }
 }

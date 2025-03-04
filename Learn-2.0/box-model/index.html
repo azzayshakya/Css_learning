@@ -1,21 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS Box Model Documentation</title>
     <link rel="stylesheet" href="./style.css">
-
-    <!-- box model is a combination of the content , padding , border , margin  -->
 </head>
-
 <body>
-    <div class="box-model">
-        <h1>box-model</h1>
 
-    </div>
+    <h1>CSS Box Model Documentation</h1>
+
+    <!-- Section 1: Introduction -->
+    <section class="section">
+        <h2>1. What is the CSS Box Model?</h2>
+        <p>
+            The CSS Box Model is a fundamental concept in web design that describes how elements 
+            are displayed as rectangular boxes in a webpage. Every HTML element consists of:
+        </p>
+        <ul>
+            <li><strong>Content:</strong> The actual content inside the box (text, images, etc.).</li>
+            <li><strong>Padding:</strong> Space between the content and the border.</li>
+            <li><strong>Border:</strong> A boundary around the element.</li>
+            <li><strong>Margin:</strong> Space outside the border, separating elements.</li>
+        </ul>
+    </section>
+
+    <!-- Section 2: Box Model Visualization -->
+    <section class="section">
+        <h2>2. Box Model Visualization</h2>
+        <p>
+            The diagram below represents how the Box Model works:
+        </p>
+        <pre>
+        +----------------------+
+        |      Margin         |
+        |  +--------------+  |
+        |  |   Border     |  |
+        |  |  +--------+  |  |
+        |  |  | Padding|  |  |
+        |  |  | Content|  |  |
+        |  |  +--------+  |  |
+        |  +--------------+  |
+        +----------------------+
+        </pre>
+    </section>
+
+    <!-- Section 3: Box Model Example -->
+    <section class="section">
+        <h2>3. Practical Example of Box Model</h2>
+        <div class="box">This is a Box</div>
+        <p>
+            The box above has:
+            <ul>
+                <li>Width: 200px</li>
+                <li>Height: 100px</li>
+                <li>Padding: 20px</li>
+                <li>Border: 5px solid blue</li>
+                <li>Margin: 30px</li>
+                <li>Background color: Light Gray</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- Section 4: Box Sizing -->
+    <section class="section">
+        <h2>4. Box Sizing</h2>
+        <p>
+            By default, the width and height apply only to the content. If padding and border are added, 
+            the box grows in size. To prevent this, we use <strong>box-sizing: border-box;</strong> which includes padding and border within the specified width.
+        </p>
+        <div class="box box-sizing-example">Box with Border-Box</div>
+    </section>
+
+    <!-- Section 5: Centering an Element -->
+    <section class="section">
+        <h2>5. Centering an Element</h2>
+        <p>The box below is centered using <code>margin: auto;</code> and <code>text-align: center;</code></p>
+        <div class="centered-box">Centered Box</div>
+    </section>
+
+    <!-- Section 6: Responsive Box -->
+    <section class="section">
+        <h2>6. Responsive Box</h2>
+        <p>Resize the screen to see the box width change.</p>
+        <div class="responsive-box">Resize me!</div>
+    </section>
 
 </body>
-
 </html>
