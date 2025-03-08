@@ -1,0 +1,56 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Takes full viewport height */
+    background-color: #f5f5f5;
+  }
+  
+  /* Card Container */
+  .card {
+    width: 50vw; /* 50% of the viewport width */
+    max-width: 400px; /* Maximum width to maintain readability */
+    padding: 2rem; /* Uses rem for consistency */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Grid Layout Inside Card */
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1 fraction vs 2 fractions */
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  /* Image */
+  .card-img {
+    width: minmax(50px, 100px); /* Ensures it doesn't shrink too much */
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  /* Text Content */
+  .card-text {
+    font-size: 1rem; /* Scales with root font-size */
+  }
+  
+  .card-title {
+    font-size: 1.5em; /* 1.5x parent’s font-size */
+    font-weight: bold;
+  }
+  
+  .card-desc {
+    font-size: 0.9em; /* Slightly smaller than parent */
+    color: gray;
+  }
+  

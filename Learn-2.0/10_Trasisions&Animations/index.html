@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions & Animations in CSS - Complete Guide</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 1.5rem 0 1rem 0;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #a777e3;
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            color: #6e8efb;
+        }
+
+        p,
+        ul,
+        ol {
+            margin-bottom: 1.5rem;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            border-left: 4px solid #a777e3;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            border-radius: 0 4px 4px 0;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            font-size: 0.9rem;
+        }
+
+        .example-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .demo-area {
+            background-color: #f0f0f0;
+            padding: 2rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #a777e3;
+            color: white;
+        }
+
+        /* Transition examples */
+        .transition-box {
+            width: 100px;
+            height: 100px;
+            background-color: #6e8efb;
+            margin: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .transition-simple {
+            transition: transform 0.3s ease;
+        }
+
+        .transition-simple:hover {
+            transform: scale(1.2);
+        }
+
+        .transition-multiple {
+            transition: background-color 0.5s ease, transform 0.3s ease-in-out, border-radius 0.4s linear;
+        }
+
+        .transition-multiple:hover {
+            background-color: #a777e3;
+            transform: rotate(45deg);
+            border-radius: 50%;
+        }
+
+        .transition-delay {
+            transition: transform 0.3s ease 0.2s, background-color 0.5s;
+        }
+
+        .transition-delay:hover {
+            transform: translateY(-20px);
+            background-color: #a777e3;
+        }
+
+        /* Animation examples */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: #6e8efb;
+            }
+
+            25% {
+                background-color: #a777e3;
+            }
+
+            50% {
+                background-color: #f06292;
+            }
+
+            75% {
+                background-color: #43a047;
+            }
+
+            100% {
+                background-color: #6e8efb;
+            }
+        }
+
+        .animation-box {
+            width: 100px;
+            height: 100px;
+            background-color: #6e8efb;
+            margin: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .animation-bounce {
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .animation-pulse {
+            animation: pulse 1.5s infinite;
+        }
+
+        .animation-spin {
+            animation: spin 3s infinite linear;
+        }
+
+        .animation-color-change {
+            animation: colorChange 8s infinite;
+        }
+
+        .animation-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .animation-control-demo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .animation-control-box {
+            width: 100px;
+            height: 100px;
+            background-color: #6e8efb;
+            margin: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        #animation-play {
+            animation: bounce 2s infinite ease-in-out;
+            animation-play-state: running;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        button {
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a777e3;
+        }
+
+        /* UI Interaction examples */
+        .card {
+            width: 250px;
+            height: 300px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img {
+            height: 150px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #6e8efb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #a777e3;
+            transform: scale(1.05);
+        }
+
+        /* Menu hover effect */
+        .hover-menu {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .hover-menu-trigger {
+            background-color: #6e8efb;
+            color: white;
+            padding: 1rem;
+            display: block;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .hover-menu-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 4px 4px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s;
+            opacity: 0;
+        }
+
+        .hover-menu:hover .hover-menu-content {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        .hover-menu-item {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hover-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Accordion */
+        .accordion {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 0.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .accordion-header {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header::after {
+            content: "+";
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .accordion-inner {
+            padding: 1rem;
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+        }
+
+        /* Loading animation */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(110, 142, 251, 0.3);
+            border-radius: 50%;
+            border-top-color: #6e8efb;
+            animation: spin 1s infinite linear;
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            width: 30%;
+            background-color: #6e8efb;
+            border-radius: 10px;
+            animation: progress 3s infinite;
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .demo-area {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Transitions & Animations in CSS</h1>
+            <p>A complete guide to creating smooth, engaging UI interactions</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#transitions">CSS Transitions</a></li>
+                <li><a href="#animations">CSS Animations</a></li>
+                <li><a href="#keyframes">Keyframes</a></li>
+                <li><a href="#hover-effects">Hover Effects</a></li>
+                <li><a href="#ui-interactions">UI Interactions</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>CSS transitions and animations allow you to create engaging, interactive user interfaces that respond
+                smoothly to user actions. They help improve user experience by providing visual feedback and guiding
+                users through the interface.</p>
+            <p>In this documentation, we'll cover:</p>
+            <ul>
+                <li>CSS transitions for smooth property changes</li>
+                <li>CSS animations with keyframes for complex movement</li>
+                <li>Hover effects to enhance interactivity</li>
+                <li>Common UI interactions like dropdowns, modals, and accordions</li>
+                <li>Best practices for performance and accessibility</li>
+            </ul>
+        </section>
+
+        <section id="transitions">
+            <h2>CSS Transitions</h2>
+            <p>CSS transitions allow property changes in CSS values to occur smoothly over a specified duration, rather
+                than happening instantly. They're perfect for simple state changes, like hover effects.</p>
+
+            <h3>Transition Properties</h3>
+            <p>The main transition properties are:</p>
+            <ul>
+                <li><code>transition-property</code>: Specifies which CSS property to animate</li>
+                <li><code>transition-duration</code>: How long the transition should take (in seconds or milliseconds)
+                </li>
+                <li><code>transition-timing-function</code>: The speed curve of the transition</li>
+                <li><code>transition-delay</code>: Optional delay before the transition starts</li>
+                <li><code>transition</code>: Shorthand property for all of the above</li>
+            </ul>
+
+            <div class="example-box">
+                <h3>Basic Transition Example</h3>
+                <pre><code>/* CSS */
+.element {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* Apply transition to all properties */
+    transition: all 0.3s ease;
+}
+
+.element:hover {
+    background-color: red;
+    transform: scale(1.2);
+}</code></pre>
+
+                <div class="demo-area">
+                    <div class="transition-box transition-simple">Hover Me</div>
+                </div>
+            </div>
+
+            <h3>Timing Functions</h3>
+            <p>Timing functions control how the intermediate values of the properties being affected by a transition are
+                calculated:</p>
+            <ul>
+                <li><code>ease</code>: Starts slow, speeds up, then ends slowly (default)</li>
+                <li><code>ease-in</code>: Starts slow, ends fast</li>
+                <li><code>ease-out</code>: Starts fast, ends slow</li>
+                <li><code>ease-in-out</code>: Starts and ends slow</li>
+                <li><code>linear</code>: Same speed from start to end</li>
+                <li><code>cubic-bezier(n,n,n,n)</code>: Custom timing function</li>
+            </ul>
+
+            <div class="example-box">
+                <h3>Multiple Transitions Example</h3>
+                <pre><code>/* CSS */
+.element {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* Apply different transitions to different properties */
+    transition: background-color 0.5s ease,
+                transform 0.3s ease-in-out,
+                border-radius 0.4s linear;
+}
+
+.element:hover {
+    background-color: purple;
+    transform: rotate(45deg);
+    border-radius: 50%;
+}</code></pre>
+
+                <div class="demo-area">
+                    <div class="transition-box transition-multiple">Hover Me</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Transition with Delay Example</h3>
+                <pre><code>/* CSS */
+.element {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* Delay the transform transition by 0.2s */
+    transition: transform 0.3s ease 0.2s,
+                background-color 0.5s;
+}
+
+.element:hover {
+    transform: translateY(-20px);
+    background-color: purple;
+}</code></pre>
+
+                <div class="demo-area">
+                    <div class="transition-box transition-delay">Hover Me</div>
+                </div>
+            </div>
+
+            <h3>Which Properties Can Be Transitioned?</h3>
+            <p>Most CSS properties can be transitioned, but some perform better than others. Properties that work well
+                include:</p>
+            <ul>
+                <li>Colors (<code>color</code>, <code>background-color</code>, etc.)</li>
+                <li>Dimensions (<code>width</code>, <code>height</code>, <code>padding</code>, <code>margin</code>)</li>
+                <li>Transformations (<code>transform</code> properties)</li>
+                <li>Opacity and visibility</li>
+                <li>Border properties</li>
+            </ul>
+            <p>Properties that can't be transitioned include: <code>display</code>, <code>position</code>, and
+                font-family.</p>
+        </section>
+
+        <section id="animations">
+            <h2>CSS Animations</h2>
+            <p>While transitions are ideal for simple state changes, CSS animations allow more complex, multi-step
+                animations that can run automatically without requiring user interaction.</p>
+
+            <h3>Animation Properties</h3>
+            <p>The main animation properties include:</p>
+            <ul>
+                <li><code>animation-name</code>: Specifies the name of the @keyframes rule</li>
+                <li><code>animation-duration</code>: How long the animation should take to complete one cycle</li>
+                <li><code>animation-timing-function</code>: The speed curve of the animation</li>
+                <li><code>animation-delay</code>: Optional delay before the animation starts</li>
+                <li><code>animation-iteration-count</code>: How many times the animation should repeat</li>
+                <li><code>animation-direction</code>: Whether the animation should play in reverse on alternate cycles
+                </li>
+                <li><code>animation-fill-mode</code>: Specifies how the element should be styled before/after the
+                    animation</li>
+                <li><code>animation-play-state</code>: Specifies whether the animation is running or paused</li>
+                <li><code>animation</code>: Shorthand property for all of the above</li>
+            </ul>
+
+            <div class="example-box">
+                <h3>Basic Animation Example</h3>
+                <pre><code>/* CSS */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+.element {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* Apply animation */
+    animation: bounce 2s infinite ease-in-out;
+}</code></pre>
+
+                <div class="demo-area animation-demo">
+                    <div>
+                        <div class="animation-box animation-bounce">Bounce</div>
+                    </div>
+                    <div>
+                        <div class="animation-box animation-pulse">Pulse</div>
+                    </div>
+                    <div>
+                        <div class="animation-box animation-spin">Spin</div>
+                    </div>
+                    <div>
+                        <div class="animation-box animation-color-change">Colors</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Animation Control</h3>
+            <p>You can control animations with JavaScript by changing the <code>animation-play-state</code> property or
+                by adding/removing classes with animations.</p>
+
+            <div class="example-box">
+                <h3>Animation Control Example</h3>
+                <pre><code>/* CSS */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.element {
+    animation: bounce 2s infinite ease-in-out;
+    animation-play-state: running; /* or paused */
+}
+
+/* JavaScript */
+document.getElementById('pause-btn').addEventListener('click', function() {
+    document.getElementById('animation-element').style.animationPlayState = 'paused';
+});
+
+document.getElementById('play-btn').addEventListener('click', function() {
+    document.getElementById('animation-element').style.animationPlayState = 'running';
+});</code></pre>
+
+                <div class="demo-area">
+                    <div class="animation-control-demo">
+                        <div class="animation-control-box" id="animation-play">Control</div>
+                        <div class="button-container">
+                            <button
+                                onclick="document.getElementById('animation-play').style.animationPlayState = 'running'">Play</button>
+                            <button
+                                onclick="document.getElementById('animation-play').style.animationPlayState = 'paused'">Pause</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="keyframes">
+            <h2>CSS Keyframes</h2>
+            <p>The <code>@keyframes</code> rule is used to define the stages and styles of an animation sequence. It
+                allows you to specify multiple points during an animation where you want specific styles to be applied.
+            </p>
+
+            <h3>Keyframe Syntax</h3>
+            <pre><code>@keyframes animationName {
+    0% {
+        /* CSS properties at start */
+    }
+    50% {
+        /* CSS properties at middle */
+    }
+    100% {
+        /* CSS properties at end */
+    }
+}</code></pre>
+
+            <p>You can also use the keywords <code>from</code> (equivalent to 0%) and <code>to</code> (equivalent to
+                100%):</p>
+
+            <pre><code>@keyframes animationName {
+    from {
+        /* CSS properties at start */
+    }
+    to {
+        /* CSS properties at end */
+    }
+}</code></pre>
+
+            <div class="example-box">
+                <h3>Complex Keyframe Example</h3>
+                <pre><code>/* CSS */
+@keyframes colorChange {
+    0% { background-color: #6e8efb; }
+    25% { background-color: #a777e3; }
+    50% { background-color: #f06292; }
+    75% { background-color: #43a047; }
+    100% { background-color: #6e8efb; }
+}
+
+.element {
+    width: 100px;
+    height: 100px;
+    animation: colorChange 8s infinite;
+}</code></pre>
+            </div>
+
+            <h3>Multiple Property Changes</h3>
+            <p>Keyframes can animate multiple properties at once:</p>
+
+            <pre><code>@keyframes move-and-color {
+    0% {
+        transform: translateX(0);
+        background-color: blue;
+        border-radius: 0;
+    }
+    50% {
+        transform: translateX(100px);
+        background-color: purple;
+    }
+    100% {
+        transform: translateX(0);
+        background-color: red;
+        border-radius: 50%;
+    }
+}</code></pre>
+        </section>
+
+        <section id="hover-effects">
+            <h2>Hover Effects</h2>
+            <p>Hover effects provide visual feedback when users interact with elements, enhancing the overall user
+                experience.</p>
+
+            <div class="example-box">
+                <h3>Button Hover Effect</h3>
+                <pre><code>/* CSS */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6e8efb;
+    color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #a777e3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+                <div class="demo-area">
+                    <a href="#" class="btn">Hover Me</a>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Card Hover Effect</h3>
+                <pre><code>/* CSS */
+.card {
+    width: 250px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+                <div class="demo-area">
+                    <div class="card">
+                        <div class="card-img">Card</div>
+                        <div class="card-content">
+                            <h4 class="card-title">Card Title</h4>
+                            <p>This card has a smooth hover effect. Try hovering over it!</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Image Hover Effect</h3>
+                <pre><code>/* CSS */
+.image-container {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-container img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="ui-interactions">
+            <h2>Smooth UI Interactions</h2>
+            <p>Now let's look at common UI patterns that benefit from transitions and animations.</p>
+
+            <div class="example-box">
+                <h3>Dropdown Menu</h3>
+                <pre><code>/* CSS */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s;
+    opacity: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    max-height: 200px;
+    opacity: 1;
+}</code></pre>
+
+                <div class="demo-area">
+                    <div class="hover-menu">
+                        <div class="hover-menu-trigger">Hover for Menu</div>
+                        <div class="hover-menu-content">
+                            <div class="hover-menu-item">Menu Item 1</div>
+                            <div class="hover-menu-item">Menu Item 2</div>
+                            <div class="hover-menu-item">Menu Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Accordion</h3>
+                <pre><code>/* CSS */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+}
+
+/* JavaScript */
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
+    });
+});</code></pre>
+
+                <div class="demo-area">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">Section 1: Introduction</div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <p>This is the content for Section 1. Transitions and animations make your website feel more interactive and responsive.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">Section 2: Getting Started</div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <p>This is the content for Section 2. Learn the basics of CSS transitions and how they differ from animations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">Section 3: Advanced Techniques</div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <p>This is the content for Section 3. Explore complex animations with multiple keyframes and timing functions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Loading Animations</h3>
+                <pre><code>/* CSS */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(110, 142, 251, 0.3);
+    border-radius: 50%;
+    border-top-color: #6e8efb;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background-color: #6e8efb;
+    animation: progress 3s infinite;
+}</code></pre>
+
+                <div class="demo-area">
+                    <div class="loading-container">
+                        <div class="spinner"></div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-inner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Page Transitions</h3>
+                <p>Page transitions can enhance the user experience by smoothly transitioning between pages or sections. These typically use JavaScript alongside CSS animations.</p>
+                <pre><code>/* CSS */
+.page {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.page.exit {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.page.enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.page.active {
+    transform: translateX(0);
+    opacity: 1;
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="best-practices">
+            <h2>Best Practices</h2>
+            <p>To ensure your transitions and animations perform well and enhance the user experience, follow these best practices:</p>
+
+            <h3>Performance Optimization</h3>
+            <ul>
+                <li><strong>Use transforms and opacity:</strong> These properties are hardware-accelerated in most browsers, resulting in smoother animations.</li>
+                <li><strong>Avoid animating expensive properties:</strong> Properties like <code>box-shadow</code>, <code>filter</code>, and <code>width/height</code> can cause layout recalculation and are more performance-intensive.</li>
+                <li><strong>Use the <code>will-change</code> property:</strong> This hints to browsers which properties are expected to change, allowing for optimizations.</li>
+                <li><strong>Keep animations short:</strong> Aim for 300ms or less for micro-interactions to maintain a snappy feel.</li>
+                <li><strong>Use appropriate timing functions:</strong> Different easing functions create different feelings of movement.</li>
+            </ul>
+
+            <pre><code>/* Good for performance */
+.element {
+    transform: translateZ(0); /* Hardware acceleration hint */
+    will-change: transform, opacity;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}</code></pre>
+
+            <h3>Accessibility Considerations</h3>
+            <ul>
+                <li><strong>Respect user preferences:</strong> Use <code>prefers-reduced-motion</code> media query to disable or simplify animations for users who prefer reduced motion.</li>
+                <li><strong>Avoid rapid flashing:</strong> Animations should not flash more than three times per second to prevent triggering photosensitive conditions.</li>
+                <li><strong>Make sure interactive elements remain accessible:</strong> Animations shouldn't obscure important content or make interactive elements difficult to use.</li>
+            </ul>
+
+            <pre><code>/* Respecting user preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}</code></pre>
+
+            <h3>Browser Compatibility</h3>
+            <p>While CSS transitions and animations have excellent browser support, consider the following:</p>
+            <ul>
+                <li>Use appropriate vendor prefixes or a tool like Autoprefixer for older browsers.</li>
+                <li>Test your animations across different browsers and devices.</li>
+                <li>Provide fallbacks for browsers that don't support certain features.</li>
+            </ul>
+
+            <pre><code>/* Vendor prefixes example */
+.element {
+    -webkit-animation: bounce 2s;
+    animation: bounce 2s;
+}
+
+@-webkit-keyframes bounce {
+    /* keyframes */
+}
+@keyframes bounce {
+    /* keyframes */
+}</code></pre>
+        </section>
+
+        <section id="advanced-techniques">
+            <h2>Advanced Animation Techniques</h2>
+            
+            <h3>GSAP Animation Library</h3>
+            <p>For more complex animations, consider using a JavaScript animation library like GSAP (GreenSock Animation Platform), which provides powerful tools for creating sophisticated animations:</p>
+            <pre><code>// GSAP example
+gsap.to(".element", {
+    duration: 1,
+    x: 100,
+    y: 50,
+    rotation: 360,
+    scale: 1.5,
+    ease: "elastic.out(1, 0.3)"
+});</code></pre>
+
+            <h3>Staggered Animations</h3>
+            <p>Creating staggered animations, where multiple elements animate sequentially:</p>
+            <pre><code>/* CSS approach */
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+
+/* JavaScript approach (GSAP) */
+gsap.to(".stagger-item", {
+    duration: 0.5,
+    opacity: 1,
+    y: 0,
+    stagger: 0.1
+});</code></pre>
+
+            <h3>Scroll-Triggered Animations</h3>
+            <p>Animations that trigger as elements scroll into view:</p>
+            <pre><code>/* Using Intersection Observer API */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.scroll-animate').forEach(element => {
+    observer.observe(element);
+});</code></pre>
+
+            <h3>Variable Animations with CSS Custom Properties</h3>
+            <p>Using CSS variables to create dynamic animations:</p>
+            <pre><code>:root {
+    --animation-speed: 1s;
+    --animation-distance: 100px;
+}
+
+.element {
+    animation: slide var(--animation-speed) ease;
+}
+
+@keyframes slide {
+    to { transform: translateX(var(--animation-distance)); }
+}
+
+/* Change variables with JavaScript */
+document.querySelector('.element').style.setProperty('--animation-distance', '200px');</code></pre>
+        </section>
+
+        <section id="practical-examples">
+            <h2>Practical Real-World Examples</h2>
+
+            <h3>Notification Badge Animation</h3>
+            <pre><code>@keyframes pulse-badge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.notification-badge {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    animation: pulse-badge 2s infinite;
+}</code></pre>
+
+            <h3>Image Carousel Transition</h3>
+            <pre><code>.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}</code></pre>
+
+            <h3>Hamburger Menu Animation</h3>
+            <pre><code>.hamburger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #333;
+    border-radius: 3px;
+    left: 0;
+    transform-origin: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.hamburger span:nth-child(3) { bottom: 0; }
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}</code></pre>
+
+            <h3>Text Fade-In Animation</h3>
+            <pre><code>@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-text {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }</code></pre>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting Common Issues</h2>
+            
+            <h3>Animation Not Working</h3>
+            <ul>
+                <li>Check for typos in property names or keyframe names</li>
+                <li>Verify that the element is displayed (animations don't work on <code>display: none</code> elements)</li>
+                <li>Make sure animation properties have the correct syntax</li>
+                <li>Inspect using browser developer tools to see applied styles</li>
+            </ul>
+            
+            <h3>Choppy Animations</h3>
+            <ul>
+                <li>Use transform and opacity instead of other properties</li>
+                <li>Add <code>will-change</code> property</li>
+                <li>Reduce the complexity of animations</li>
+                <li>Consider using <code>requestAnimationFrame</code> for JavaScript animations</li>
+            </ul>
+            
+            <h3>Unexpected Animation Behavior</h3>
+            <ul>
+                <li>Check <code>animation-fill-mode</code> property</li>
+                <li>Verify that keyframes are properly defined</li>
+                <li>Ensure animation duration is appropriate</li>
+                <li>Check for conflicting transitions or animations</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>CSS Transitions & Animations Documentation | A Complete Guide</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Units & Sizing Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .card {
+            width: 50%; /* Using percentage */
+            max-width: 400px; /* Ensures it doesn’t get too large */
+            height: 30vh; /* Uses viewport height */
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card h2 {
+            font-size: 2rem; /* Relative to root font size */
+        }
+        .card p {
+            font-size: 1.2em; /* Relative to parent font size */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📌 Understanding CSS Units & Sizing</h1>
+    </header>
+    <main>
+        <section>
+            <h2>🔹 Absolute Units</h2>
+            <p><strong>px (Pixels):</strong> Represents a fixed size.</p>
+            <pre><code>width: 200px; /* Stays 200 pixels wide */</code></pre>
+        </section>
+
+        <section>
+            <h2>🔹 Relative Units</h2>
+            <h3>% (Percentage)</h3>
+            <p>Defines a size relative to its parent element.</p>
+            <pre><code>width: 50%; /* Takes 50% of parent’s width */</code></pre>
+            
+            <h3>em (Relative to Parent Font Size)</h3>
+            <pre><code>div { font-size: 16px; }
+p { font-size: 2em; /* 32px */ }</code></pre>
+            
+            <h3>rem (Relative to Root Font Size)</h3>
+            <pre><code>html { font-size: 20px; }
+p { font-size: 2rem; /* 40px */ }</code></pre>
+            
+            <h3>vh & vw (Viewport Height & Width)</h3>
+            <pre><code>div { width: 50vw; height: 30vh; }</code></pre>
+        </section>
+
+        <section>
+            <h2>🔹 CSS Grid Units</h2>
+            <h3>fr (Fractional Unit in Grid)</h3>
+            <pre><code>.grid { display: grid; grid-template-columns: 1fr 2fr; }</code></pre>
+            
+            <h3>minmax() (Minimum & Maximum Size in Grid)</h3>
+            <pre><code>.grid { grid-template-columns: minmax(200px, 1fr); }</code></pre>
+        </section>
+    </main>
+
+    <section class="card-container">
+        <div class="card">
+            <h2>Responsive Card</h2>
+            <p>This card adjusts using different CSS units.</p>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --font-size-base: 16px;
+            --spacing: 10px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 20px;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing);
+        }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        pre {
+            background: #eee;
+            padding: var(--spacing);
+            border-radius: 5px;
+        }
+
+        .example-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing);
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📌 Understanding CSS Variables</h1>
+    </header>
+    <main>
+        <section>
+            <h2>🔹 What Are CSS Variables?</h2>
+            <p>CSS Variables (also known as Custom Properties) allow you to store reusable values in a stylesheet.</p>
+            <pre><code>:root {
+    --primary-color: #3498db;
+    --text-size: 16px;
+}
+
+p {
+    color: var(--primary-color);
+    font-size: var(--text-size);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>🔹 Benefits of Using CSS Variables</h2>
+            <ul>
+                <li>Improves maintainability and reusability.</li>
+                <li>Helps in maintaining a consistent design system.</li>
+                <li>Allows for easy theme switching.</li>
+                <li>Can be modified dynamically using JavaScript.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔹 Defining and Using CSS Variables</h2>
+            <p>CSS variables are declared inside the <code>:root</code> pseudo-class for global access.</p>
+            <pre><code>:root {
+    --main-bg: #f8f9fa;
+    --font-color: #333;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--font-color);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>🔹 Local vs Global Variables</h2>
+            <p>Variables inside <code>:root</code> are global, whereas local variables are specific to an element.</p>
+            <pre><code>.container {
+    --container-color: #e74c3c;
+}
+
+.container p {
+    color: var(--container-color);
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>🔹 CSS Variables and JavaScript</h2>
+            <p>CSS variables can be manipulated dynamically using JavaScript.</p>
+            <pre><code>document.documentElement.style.setProperty('--primary-color', '#e74c3c');</code></pre>
+        </section>
+
+        <section class="example-box">
+            <h3>Example Box</h3>
+            <p>This box uses a CSS variable for background color.</p>
+        </section>
+    </main>
+</body>
+
+</html>
